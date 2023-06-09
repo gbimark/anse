@@ -1,11 +1,9 @@
-import { createSignal, onMount } from 'solid-js'
+import { createSignal } from 'solid-js'
 import { Show } from 'solid-js/web'
 import { useClipboardCopy } from '@/hooks'
 import SettingsNotDefined from './SettingsNotDefined'
 import type { Accessor } from 'solid-js'
 import type { SettingsUI } from '@/types/provider'
-
-const apiKey = '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'
 
 interface Props {
   settings: SettingsUI
@@ -17,10 +15,6 @@ interface Props {
 export default ({ settings, editing, value, setValue }: Props) => {
   if (!settings.name || !settings.type) return null
   const [isOpen, setIsOpen] = createSignal(false)
-
-  onMount(() => {
-    setValue(apiKey)
-  })
 
   return (
     <div>
